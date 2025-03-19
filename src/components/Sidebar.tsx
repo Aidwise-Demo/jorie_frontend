@@ -128,7 +128,9 @@ export function Sidebar({ onViewChange, currentView }) {
     }));
   };
 
+
   return (
+    <>
     <div className="h-screen w-64 border-r bg-sidebar flex flex-col">
       <div className="p-4 text-sm text-gray-500">Menu</div>
       
@@ -192,6 +194,11 @@ export function Sidebar({ onViewChange, currentView }) {
               onClick={() => onViewChange("adherenceScorecard")}
               isActive={currentView === "adherenceScorecard"}
             />
+                       <SidebarSubItem 
+              title="Risk Prediction"
+              onClick={() => onViewChange("risk_prediction")}
+              isActive={currentView === "risk_prediction"}
+            />
             <SidebarSubItem 
               title="Guideline Adherence Evaluator" 
               onClick={() => onViewChange("guidelineAdherence")}
@@ -235,5 +242,6 @@ export function Sidebar({ onViewChange, currentView }) {
         </SidebarItem>
       </div>
     </div>
+    </>
   );
 }

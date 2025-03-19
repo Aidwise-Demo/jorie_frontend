@@ -55,15 +55,16 @@ function Login() {
             };
             
             const response = await site.post("api/register", UserRegister);
+            console.log("Registration response:", response);
             
             // Show success message
-            alert("User registered successfully!");
+            alert(response.data.message);
             // Switch to login mode after successful registration
             setIsSignup(false);
         } catch (error) {
             console.error("Registration error:", error);
             setError(error.response?.data?.message || "Registration failed");
-            alert(error.response?.data?.message || "Registration failed");
+            alert(error.response?.data?.detail || "Registration failed");
         }
     };
 
