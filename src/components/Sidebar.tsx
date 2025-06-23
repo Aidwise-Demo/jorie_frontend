@@ -53,13 +53,14 @@ const SidebarItem = ({
   );
 };
 
+// ...existing code...
 const SidebarSubItem = ({ title, isActive = false, onClick }) => {
   return (
     <a
       href="#"
       className={cn(
-        "block py-1.5 text-sm text-gray-500 hover:text-gray-900 relative pl-3",
-        isActive && "text-emerald-600 font-medium"
+        "block py-1.5 text-sm text-blue-100 hover:text-white relative pl-3",
+        isActive && "text-emerald-400 font-medium"
       )}
       onClick={(e) => {
         e.preventDefault();
@@ -85,14 +86,14 @@ const NestedSidebarItem = ({
     <div className="mb-1">
       <button
         className={cn(
-          "w-full flex justify-between items-center py-1.5 text-sm",
-          isActive ? "text-emerald-600 font-medium" : "text-gray-500 hover:text-gray-900"
+          "w-full flex justify-between items-center py-1.5 text-sm text-blue-100 hover:text-white",
+          isActive && "text-emerald-400 font-medium"
         )}
         onClick={onClick}
       >
         <div className="flex items-center gap-2 relative pl-3">
           <span className="absolute left-0 top-0 bottom-0 w-0.5 bg-gray-200"></span>
-          {icon && <span className="text-gray-600">{icon}</span>}
+          {icon && <span className="text-blue-200">{icon}</span>}
           <span>{title}</span>
         </div>
         {hasChildren && (
@@ -112,7 +113,7 @@ const NestedSidebarItem = ({
     </div>
   );
 };
-
+// ...existing code...
 export function Sidebar({ onViewChange, currentView }) {
   const [openSections, setOpenSections] = useState({
     clinicalInteraction: true,
@@ -131,8 +132,12 @@ export function Sidebar({ onViewChange, currentView }) {
 
   return (
     <>
-    <div className="h-screen w-64 border-r bg-sidebar flex flex-col">
-      <div className="p-4 text-sm text-gray-500">Menu</div>
+    <div
+  className="h-screen w-64 border-r flex flex-col"
+  style={{ backgroundColor: '#050B13' }}
+>
+
+      <div className="p-4 text-sm text-white">Menu</div>
       
       <div className="flex-1 overflow-y-auto px-3 py-2">
         <SidebarItem 
@@ -140,6 +145,7 @@ export function Sidebar({ onViewChange, currentView }) {
           title="Clinical Interaction" 
           hasChildren 
           isOpen={openSections.clinicalInteraction}
+          isActive={true}
           onClick={() => toggleSection("clinicalInteraction")}
         >
           <SidebarSubItem 
@@ -191,8 +197,8 @@ export function Sidebar({ onViewChange, currentView }) {
             />  
             <SidebarSubItem 
               title="Persona Study to Generate Protocols"
-              onClick={() => onViewChange("adherenceScorecard")}
-              isActive={currentView === "adherenceScorecard"}
+              onClick={() => onViewChange("personaStudy")}
+              isActive={currentView === "personaStudy"}
             />
                        <SidebarSubItem 
               title="Risk Prediction"

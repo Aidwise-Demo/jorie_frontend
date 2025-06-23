@@ -33,7 +33,11 @@ import { Activity, ChartBar, Database, LineChart } from "lucide-react";
 const LandingPage = () => {
   const navigate = useNavigate();
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-b from-gray-100 to-white">
+<div
+  className="relative min-h-screen overflow-hidden bg-gradient-to-b"
+  style={{ backgroundImage: 'linear-gradient(to bottom, #0B1120, #1E293B)' }}
+>
+
       {/* Background Image with Overlay */}
       <div 
         className="absolute inset-0 bg-hero-pattern bg-cover bg-center mix-blend-overlay opacity-20"
@@ -53,7 +57,7 @@ const LandingPage = () => {
             <span className="text-xs font-medium text-blue-600">AI-Powered Healthcare Analytics</span>
           </div>
           
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight animate-slide-up">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight animate-slide-up">
             Welcome to <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-cyan-500">Joire AI Health Suite</span>
           </h1>
           

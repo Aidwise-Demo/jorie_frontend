@@ -213,8 +213,11 @@ const Index = () => {
         }
         
         // Use the site instance from api.ts with auth header
+        const dashboardKey =
+        currentView === "personaStudy" ? "adherenceScorecard" : currentView;
+
         const response = await site.get(
-          `/api/dashboards/${currentView}`,
+          `/api/dashboards/${dashboardKey}`,
           {
             headers: {
               'Authorization': `Bearer ${token}`
@@ -353,7 +356,8 @@ const Index = () => {
               width: "100%", 
               height: "calc(100vh - 120px)", 
               minHeight: "calc(100vh - 120px)",
-              border: "none" 
+              border: "none" ,
+              backgroundColor: "transparent"
             }}
           />
         </div>
@@ -364,17 +368,19 @@ const Index = () => {
   };
   
   return (
-    <div className="flex h-screen overflow-hidden bg-gray-50">
+    <div className="flex h-screen overflow-hidden" style={{ backgroundColor: '#0B1120' }}>
+
       <Sidebar onViewChange={handleViewChange} currentView={currentView} />
       
       <main className="flex-1 overflow-auto">
         <div className="p-8">
           <div className="flex justify-between items-center mb-6">
-            <h1 className="text-2xl font-semibold">
+            <h1 className="text-2xl font-semibold text-white">
               {currentView === "patientRiskProfiler" && "Patient Risk Profiler"}
               {currentView === "patientTimeline" && "Care Voyage: Patient Recommendation"}
               {currentView === "personaComparison" && "Persona Comparison"}
               {currentView === "adherenceScorecard" && "Adherence & Engagement Scorecard"}
+              {/* {currentView === "personaStudy" && "Persona Study to Generate Protocols"} */}
               {currentView === "referralmanagement" && "Referral Management"}
               {currentView === "outboundCampaigns" && "Outbound Campaigns"}
               {currentView === "patientExperienceSurvey" && "Patient Experience Survey"}
