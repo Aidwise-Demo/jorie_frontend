@@ -175,6 +175,8 @@ import { Loader2, ClipboardList } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import site from "../utils/API"; // Import the API service
 import OutboundCampaigns from "@/components/OutboundCampaigns";
+import PatientSurvey from "@/components/PatientSurvey";
+
 
 const Index = () => {
   const location = useLocation();
@@ -317,6 +319,9 @@ const Index = () => {
     }
     if (currentView === "outboundCampaigns") {
     return <OutboundCampaigns />;
+  }
+   if (currentView === "patientExperienceSurvey") {
+    return <PatientSurvey />;
   }
     
     // For Power BI reports
