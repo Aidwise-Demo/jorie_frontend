@@ -176,6 +176,8 @@ import { useLocation } from "react-router-dom";
 import site from "../utils/API"; // Import the API service
 import OutboundCampaigns from "@/components/OutboundCampaigns";
 import PatientSurvey from "@/components/PatientSurvey";
+import UtilizationReviewDashboard from "@/components/UtilizationReviewDashboard";
+
 
 
 const Index = () => {
@@ -322,6 +324,9 @@ const Index = () => {
   }
    if (currentView === "patientExperienceSurvey") {
     return <PatientSurvey />;
+  }
+     if (currentView === "utilizationReview") {
+    return <UtilizationReviewDashboard />;
   }
     
     // For Power BI reports
