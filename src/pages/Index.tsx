@@ -174,6 +174,7 @@ import { ReferralManagement } from "@/components/Referrals";
 import { Loader2, ClipboardList } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import site from "../utils/API"; // Import the API service
+import OutboundCampaigns from "@/components/OutboundCampaigns";
 
 const Index = () => {
   const location = useLocation();
@@ -314,6 +315,9 @@ const Index = () => {
     if (currentView === "referralmanagement") {
       return <ReferralManagement />;
     }
+    if (currentView === "outboundCampaigns") {
+    return <OutboundCampaigns />;
+  }
     
     // For Power BI reports
     if (loading) {
