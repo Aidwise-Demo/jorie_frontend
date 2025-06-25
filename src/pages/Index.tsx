@@ -341,7 +341,7 @@ const Index = () => {
           title="Care Variations Dashboard"
           src="https://app.powerbi.com/view?r=eyJrIjoiMGIzY2Q0YTgtYmQ3MC00NDA3LThkNGYtZmJhZDlmZTBmOTQ0IiwidCI6IjM5ZDgxNGFiLWE1NmYtNDc4ZC04YjE0LWY0ZjFlOTljZmUxYiJ9"
           width="100%"
-          height="900"
+          height="700"
           style={{
             border: "none",
             minHeight: "calc(100vh - 200px)",
