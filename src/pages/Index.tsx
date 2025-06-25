@@ -413,29 +413,33 @@ const Index = () => {
       <Sidebar onViewChange={handleViewChange} currentView={currentView} />
       
       <main className="flex-1 overflow-auto">
-        <div className="p-8">
-          <div className="flex justify-between items-center mb-6">
-            <h1 className="text-2xl font-semibold text-white">
-              {currentView === "patientRiskProfiler" && "Patient Risk Profiler"}
-              {currentView === "patientTimeline" && "Care Voyage: Patient Recommendation"}
-              {currentView === "personaComparison" && "Persona Comparison"}
-              {currentView === "adherenceScorecard" && "Adherence & Engagement Scorecard"}
-              {/* {currentView === "personaStudy" && "Persona Study to Generate Protocols"} */}
-              {currentView === "referralmanagement" && "Referral Management"}
-              {currentView === "outboundCampaigns" && "Outbound Campaigns"}
-              {currentView === "patientExperienceSurvey" && "Patient Experience Survey"}
-              {currentView === "utilizationReview" && "Utilization Review and Management"}
-              {currentView === "personaStudy" && "Persona Study to Generate Protocols"}
-              {currentView === "guidelineAdherence" && "Guideline Adherence Evaluator"}
-              {currentView === "careVariations" && "Care Variations"}
-              {currentView === "outcomeReporting" && "Outcome Reporting"}
-              {currentView === "predictedUtilization" && "Predicted Utilization Odds"}
-            </h1>
-          </div>
-          
-          {renderContent()}
-        </div>
-      </main>
+  <div className="p-8">
+    {/* Only show header for views NOT in this list */}
+    {![
+      "outboundCampaigns",
+      "patientExperienceSurvey",
+      "utilizationReview",
+      "guidelineAdherence",
+      "careVariations"
+    ].includes(currentView) && (
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-2xl font-semibold text-white">
+          {currentView === "patientRiskProfiler" && "Patient Risk Profiler"}
+          {currentView === "patientTimeline" && "Care Voyage: Patient Recommendation"}
+          {currentView === "personaComparison" && "Persona Comparison"}
+          {currentView === "adherenceScorecard" && "Adherence & Engagement Scorecard"}
+          {/* {currentView === "personaStudy" && "Persona Study to Generate Protocols"} */}
+          {currentView === "referralmanagement" && "Referral Management"}
+          {currentView === "personaStudy" && "Persona Study to Generate Protocols"}
+          {currentView === "outcomeReporting" && "Outcome Reporting"}
+          {currentView === "predictedUtilization" && "Predicted Utilization Odds"}
+        </h1>
+      </div>
+    )}
+
+    {renderContent()}
+  </div>
+</main>
     </div>
   );
 };
