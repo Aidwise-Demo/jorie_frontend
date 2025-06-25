@@ -177,6 +177,8 @@ import site from "../utils/API"; // Import the API service
 import OutboundCampaigns from "@/components/OutboundCampaigns";
 import PatientSurvey from "@/components/PatientSurvey";
 import UtilizationReviewDashboard from "@/components/UtilizationReviewDashboard";
+import GuidelineAdherenceEvaluator from "@/components/GuidelineAdherenceEvaluator";
+
 
 
 
@@ -327,6 +329,30 @@ const Index = () => {
   }
      if (currentView === "utilizationReview") {
     return <UtilizationReviewDashboard />;
+  }
+     if (currentView === "guidelineAdherence") {
+    return <GuidelineAdherenceEvaluator />;
+  }
+    if (currentView === "careVariations") {
+    return (
+      <div className="w-full h-full min-h-[calc(100vh-120px)] flex flex-col items-center justify-start">
+        {/* <h1 className="text-2xl font-semibold text-white my-6">Care Variations</h1> */}
+        <iframe
+          title="Care Variations Dashboard"
+          src="https://app.powerbi.com/view?r=eyJrIjoiMGIzY2Q0YTgtYmQ3MC00NDA3LThkNGYtZmJhZDlmZTBmOTQ0IiwidCI6IjM5ZDgxNGFiLWE1NmYtNDc4ZC04YjE0LWY0ZjFlOTljZmUxYiJ9"
+          width="100%"
+          height="900"
+          style={{
+            border: "none",
+            minHeight: "calc(100vh - 200px)",
+            background: "white",
+            borderRadius: "12px",
+            boxShadow: "0 2px 16px 0 rgba(0,0,0,0.10)"
+          }}
+          allowFullScreen
+        />
+      </div>
+    );
   }
     
     // For Power BI reports

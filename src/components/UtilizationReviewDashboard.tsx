@@ -28,7 +28,7 @@ import { useState } from 'react';
 const utilizationData = [
   {
     id: 1,
-    patientName: "Sarah Johnson",
+    patientName: "E649176",
     patientId: "P-2024-0156",
     age: 67,
     condition: "Chronic Heart Failure",
@@ -48,7 +48,7 @@ const utilizationData = [
   },
   {
     id: 2,
-    patientName: "Robert Martinez",
+    patientName: "E774169",
     patientId: "P-2024-0187",
     age: 54,
     condition: "Hip Replacement Surgery",
@@ -68,7 +68,7 @@ const utilizationData = [
   },
   {
     id: 3,
-    patientName: "Emily Davis",
+    patientName: "E1002865",
     patientId: "P-2024-0203",
     age: 29,
     condition: "Pneumonia Treatment",
@@ -88,7 +88,7 @@ const utilizationData = [
   },
   {
     id: 4,
-    patientName: "Thomas Anderson",
+    patientName: "E1025044",
     patientId: "P-2024-0178",
     age: 72,
     condition: "Stroke Recovery",
@@ -280,7 +280,7 @@ const UtilizationReviewDashboard = () => {
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-4 h-4" />
                   <input
                     type="text"
-                    placeholder="Search patients, conditions, or physicians..."
+                    placeholder="Search patient IDs, conditions, or physicians..."
                     className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50"
                   />
                 </div>
@@ -313,8 +313,8 @@ const UtilizationReviewDashboard = () => {
                       <div className="flex items-start gap-3 mb-4">
                         <div className={`w-3 h-3 rounded-full ${getPriorityDot(case_.priority)} mt-2`}></div>
                         <div className="flex-1">
-                          <h3 className="text-xl font-semibold text-white mb-1">{case_.patientName}</h3>
-                          <p className="text-slate-400 text-sm mb-2">ID: {case_.patientId} • Age: {case_.age}</p>
+                          <h3 className="text-xl font-semibold text-white mb-1">Patient ID: {case_.patientName}</h3>
+                          <p className="text-slate-400 text-sm mb-2">Case ID: {case_.patientId} • Age: {case_.age}</p>
                           <div className="flex items-center gap-2 mb-3">
                             <Heart className="w-4 h-4 text-red-400" />
                             <span className="text-slate-300 text-sm">{case_.condition}</span>
