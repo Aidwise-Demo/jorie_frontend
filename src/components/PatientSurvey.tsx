@@ -138,7 +138,7 @@ const PatientSurvey = () => {
         <div className="px-8 py-6">
           <div className="flex items-center justify-between">
             <div className="space-y-2">
-              <h1 className="text-4xl font-bold bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
+              <h1 className="text-2xl font-semibold bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
                 Patient Experience
               </h1>
               <p className="text-slate-400 text-lg">Transform feedback into exceptional care</p>
