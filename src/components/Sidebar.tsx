@@ -200,11 +200,11 @@ export function Sidebar({ onViewChange, currentView }) {
               onClick={() => onViewChange("personaStudy")}
               isActive={currentView === "personaStudy"}
             />
-                       <SidebarSubItem 
+                       {/* <SidebarSubItem 
               title="Risk Prediction"
               onClick={() => onViewChange("risk_prediction")}
               isActive={currentView === "risk_prediction"}
-            />
+            /> */}
             <SidebarSubItem 
               title="Guideline Adherence Evaluator" 
               onClick={() => onViewChange("guidelineAdherence")}
