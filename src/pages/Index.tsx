@@ -220,8 +220,14 @@ const Index = () => {
         }
         
         // Use the site instance from api.ts with auth header
-        const dashboardKey =
-        currentView === "personaStudy" ? "adherenceScorecard" : currentView;
+       const dashboardKey =
+  currentView === "personaStudy"
+    ? "adherenceScorecard"
+    : currentView === "predictedUtilization"
+    ? "diagnostic_odds"
+       : currentView === "overviewReporting"
+    ? "Overview"
+    : currentView;
 
         const response = await site.get(
           `/api/dashboards/${dashboardKey}`,
@@ -431,7 +437,7 @@ const Index = () => {
           {/* {currentView === "personaStudy" && "Persona Study to Generate Protocols"} */}
           {currentView === "referralmanagement" && "Referral Management"}
           {currentView === "personaStudy" && "Persona Study to Generate Protocols"}
-          {currentView === "outcomeReporting" && "Outcome Reporting"}
+          {currentView === "overviewReporting" && "Overview"}
           {currentView === "predictedUtilization" && "Predicted Utilization Odds"}
         </h1>
       </div>

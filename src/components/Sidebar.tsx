@@ -9,7 +9,10 @@ import {
   LogOut,
   User,
   Building2,
-  UserCircle
+  UserCircle,
+  ArrowRight,
+  Dot,
+  ChevronRight
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -53,7 +56,7 @@ const SidebarItem = ({
   );
 };
 
-// ...existing code...
+// Updated SidebarSubItem with icon instead of line
 const SidebarSubItem = ({ title, isActive = false, onClick }) => {
   return (
     <a
@@ -67,12 +70,15 @@ const SidebarSubItem = ({ title, isActive = false, onClick }) => {
         if (onClick) onClick();
       }}
     >
-      <span className="absolute left-0 top-0 bottom-0 w-0.5 bg-gray-200"></span>
-      {title}
+      <div className="flex items-center gap-2">
+        <ArrowRight className="h-3 w-3 text-gray-400" />
+        <span>{title}</span>
+      </div>
     </a>
   );
 };
 
+// Updated NestedSidebarItem with icon instead of line
 const NestedSidebarItem = ({ 
   icon,
   title, 
@@ -92,7 +98,7 @@ const NestedSidebarItem = ({
         onClick={onClick}
       >
         <div className="flex items-center gap-2 relative pl-3">
-          <span className="absolute left-0 top-0 bottom-0 w-0.5 bg-gray-200"></span>
+          <ChevronRight className="h-3 w-3 text-gray-400" />
           {icon && <span className="text-blue-200">{icon}</span>}
           <span>{title}</span>
         </div>
@@ -113,7 +119,7 @@ const NestedSidebarItem = ({
     </div>
   );
 };
-// ...existing code...
+
 export function Sidebar({ onViewChange, currentView }) {
   const [openSections, setOpenSections] = useState({
     clinicalInteraction: true,
@@ -129,14 +135,12 @@ export function Sidebar({ onViewChange, currentView }) {
     }));
   };
 
-
   return (
     <>
     <div
-  className="h-screen w-64 border-r flex flex-col"
-  style={{ backgroundColor: '#050B13' }}
->
-
+      className="h-screen w-64 border-r flex flex-col"
+      style={{ backgroundColor: '#050B13' }}
+    >
       <div className="p-4 text-sm text-white">Menu</div>
       
       <div className="flex-1 overflow-y-auto px-3 py-2">
@@ -200,11 +204,6 @@ export function Sidebar({ onViewChange, currentView }) {
               onClick={() => onViewChange("personaStudy")}
               isActive={currentView === "personaStudy"}
             />
-                       {/* <SidebarSubItem 
-              title="Risk Prediction"
-              onClick={() => onViewChange("risk_prediction")}
-              isActive={currentView === "risk_prediction"}
-            /> */}
             <SidebarSubItem 
               title="Guideline Adherence Evaluator" 
               onClick={() => onViewChange("guidelineAdherence")}
@@ -216,9 +215,9 @@ export function Sidebar({ onViewChange, currentView }) {
               isActive={currentView === "careVariations"} 
             />
             <SidebarSubItem 
-              title="Outcome Reporting" 
-              onClick={() => onViewChange("outcomeReporting")}
-              isActive={currentView === "outcomeReporting"} 
+              title="Overview Reporting" 
+              onClick={() => onViewChange("overviewReporting")}
+              isActive={currentView === "overviewReporting"} 
             />
             <SidebarSubItem 
               title="Predicted Utilization Odds" 

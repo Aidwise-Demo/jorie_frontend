@@ -138,7 +138,7 @@ const PatientSurvey = () => {
         <div className="px-8 py-6">
           <div className="flex items-center justify-between">
             <div className="space-y-2">
-              <h1 className="text-2xl font-semibold bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
+              <h1 className="text-2xl font-bold text-white mb-1">
                 Patient Experience
               </h1>
               <p className="text-slate-400 text-lg">Transform feedback into exceptional care</p>
@@ -194,25 +194,26 @@ const PatientSurvey = () => {
               gradient: "from-purple-500 to-pink-500",
               bgGradient: "from-purple-500/10 to-pink-500/10"
             }
-          ].map((stat, index) => (
-            <div key={index} className="group relative">
-              <div className={`absolute inset-0 bg-gradient-to-r ${stat.bgGradient} rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300`}></div>
-              <div className="relative backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
-                <div className="flex items-center justify-between mb-4">
-                  <div className={`p-3 rounded-xl bg-gradient-to-r ${stat.gradient} shadow-lg`}>
-                    <stat.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <TrendingUp className="w-4 h-4 text-emerald-400" />
-                </div>
-                <div className="space-y-2">
-                  <h3 className="text-3xl font-bold text-white">{stat.value}</h3>
-                  <p className="text-slate-300 text-sm font-medium">{stat.title}</p>
-                  <p className="text-emerald-400 text-xs">{stat.change}</p>
-                </div>
-              </div>
-            </div>
-          ))}
+].map((stat, index) => (
+  <div key={index} className="group relative flex items-center justify-center">
+    <div className={`absolute inset-0 bg-gradient-to-r ${stat.bgGradient} rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300`}></div>
+    <div className="relative backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300 flex flex-col items-center justify-center text-center w-72">
+      {/* Trend Arrow at Top Right */}
+      <TrendingUp className="absolute top-4 right-4 w-5 h-5 text-emerald-400" />
+      <div className="flex flex-col items-center justify-center mb-4">
+        <div className={`p-3 rounded-xl bg-gradient-to-r ${stat.gradient} shadow-lg mb-2`}>
+          <stat.icon className="w-6 h-6 text-white" />
         </div>
+      </div>
+      <div className="space-y-2">
+        <h3 className="text-3xl font-bold text-white">{stat.value}</h3>
+        <p className="text-slate-300 text-sm font-medium">{stat.title}</p>
+        <p className="text-emerald-400 text-xs">{stat.change}</p>
+      </div>
+    </div>
+  </div>
+))}
+</div>
 
         {/* Search and Filter Bar */}
         <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-6 mb-8">

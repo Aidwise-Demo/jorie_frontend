@@ -225,26 +225,33 @@ const UtilizationReviewDashboard = () => {
         {/* Key Metrics */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {metricsData.map((metric, index) => (
-            <div key={index} className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-6">
-              <div className="flex items-center justify-between mb-4">
-                <div className={`p-3 rounded-xl bg-${metric.color}-500/20`}>
-                  <metric.icon className={`w-6 h-6 text-${metric.color}-400`} />
-                </div>
-                {metric.trend === 'up' ? (
-                  <TrendingUp className={`w-4 h-4 ${metric.color === 'red' ? 'text-red-400' : 'text-emerald-400'}`} />
-                ) : (
-                  <TrendingDown className="w-4 h-4 text-emerald-400" />
-                )}
-              </div>
-              <div>
-                <h3 className="text-3xl font-bold text-white mb-1">{metric.value}</h3>
-                <p className="text-slate-400 text-sm mb-2">{metric.title}</p>
-                <p className={`text-xs ${metric.color === 'red' && metric.trend === 'up' ? 'text-red-400' : 'text-emerald-400'}`}>
-                  {metric.change} this week
-                </p>
-              </div>
-            </div>
-          ))}
+  <div
+    key={index}
+    className="group relative flex items-center justify-center"
+  >
+    <div className="absolute inset-0 bg-white/10 rounded-2xl blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+    <div className="relative backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col items-center justify-center text-center w-72">
+      {/* Trend Arrow at Top Right */}
+      {metric.trend === 'up' ? (
+        <TrendingUp className={`absolute top-4 right-4 w-5 h-5 ${metric.color === 'red' ? 'text-red-400' : 'text-emerald-400'}`} />
+      ) : (
+        <TrendingDown className="absolute top-4 right-4 w-5 h-5 text-emerald-400" />
+      )}
+      <div className="flex flex-col items-center justify-center mb-4">
+        <div className={`p-3 rounded-xl bg-${metric.color}-500/20 mb-2`}>
+          <metric.icon className={`w-6 h-6 text-${metric.color}-400`} />
+        </div>
+      </div>
+      <div className="space-y-2">
+        <h3 className="text-3xl font-bold text-white">{metric.value}</h3>
+        <p className="text-slate-300 text-sm font-medium">{metric.title}</p>
+        <p className={`text-xs ${metric.color === 'red' && metric.trend === 'up' ? 'text-red-400' : 'text-emerald-400'}`}>
+          {metric.change} this week
+        </p>
+      </div>
+    </div>
+  </div>
+))}
         </div>
 
         {/* Navigation Tabs */}
